@@ -1,5 +1,5 @@
 from estudo import app
-from flask import render_template , request
+from flask import render_template , request, redirect, url_for
 
 @app.route ('/')
 def formulario():
