@@ -2,38 +2,29 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário das Emoções</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Calculadora de IMC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <main class="container">
-    <h1>🫀 Formulário das Emoções</h1>
-    <p class="subtitle">Nem sempre há soluções lógicas — às vezes, só precisamos colocar em palavras.</p>
+  <div class="container">
+    <h1>Calculadora de IMC</h1>
+    <p>Descubra seu Índice de Massa Corporal preenchendo os campos abaixo.</p>
 
-    <form id="emotionForm" class="form">
-      <label for="feeling">1. Como você se sente agora?</label>
-      <input type="text" id="feeling" placeholder="Ex: Cansado, confuso, esperançoso..." required>
+    <form action="/resultado" method="POST">
+      <label>Nome:</label><br>
+      <input type="text" name="nome" required><br>
 
-      <label for="reason">2. O que fez você se sentir assim?</label>
-      <textarea id="reason" placeholder="Escreva o motivo, se quiser..."></textarea>
+      <label>Peso (kg):</label><br>
+      <input type="number" name="peso" step="0.1" required><br>
 
-      <label for="change">3. Se pudesse mudar algo agora, o que seria?</label>
-      <textarea id="change" placeholder="Escreva o que gostaria de mudar..."></textarea>
+      <label>Altura (m):</label><br>
+      <input type="number" name="altura" step="0.01" required><br>
 
-      <button type="submit">Enviar</button>
+      <button type="submit">Calcular</button>
     </form>
 
-    <section id="response" class="hidden">
-      <h2>Reflexão</h2>
-      <p id="message"></p>
-    </section>
-
-    <footer>
-      <p>💬 Este é um espaço simbólico — suas respostas não são salvas em lugar nenhum.</p>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
+    <br>
+    <a href="/autor">Sobre o Autor</a>
+  </div>
 </body>
 </html>

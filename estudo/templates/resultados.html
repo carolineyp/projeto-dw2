@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado IMC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Resultado</h1>
+    <p>Olá, <strong>{{ nome }}</strong>!</p>
+    <p>Seu IMC é <strong>{{ imc }}</strong></p>
+    <p>Situação: <strong>{{ situacao }}</strong></p>
+
+    <div id="mensagem" class="message">Carregando mensagem...</div>
+
+    <br>
+    <a href="/index">Voltar ao Formulário</a>
+  </div>
+
+  <script>
+    // Exibe mensagem personalizada com base na situação
+    const situacao = "{{ situacao }}";
+    const nome = "{{ nome }}";
+    const msgDiv = document.getElementById("mensagem");
+
+    let texto = "";
+    let classe = "";
+
+    if (situacao === "Peso normal") {
+      texto = `🎉 Parabéns, ${nome}! Você está com o peso ideal. Continue assim!`;
+      classe = "normal";
+    } else if (situacao === "Abaixo do peso") {
+      texto = `⚠️ Ei, ${nome}, seu peso está abaixo do ideal. Que tal cuidar da alimentação?`;
+      classe = "abaixo";
+    } else if (situacao === "Sobrepeso") {
+      texto = `💡 Atenção, ${nome}. Você está com sobrepeso. Pequenas mudanças ajudam muito!`;
+      classe = "sobrepeso";
+    } else {
+      texto = `🚨 ${nome}, seu IMC indica obesidade. É importante procurar acompanhamento médico.`;
+      classe = "obesidade";
+    }
+
+    // Aplica o texto e estilo
+    msgDiv.innerText = texto;
+    msgDiv.classList.add(classe);
+
+    // Animação suave após 300ms
+    setTimeout(() => {
+      msgDiv.style.opacity = 1;
+    }, 300);
+  </script>
+</body>
+</html>
