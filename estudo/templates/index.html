@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário das Emoções</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>🫀 Formulário das Emoções</h1>
+    <p class="subtitle">Nem sempre há soluções lógicas — às vezes, só precisamos colocar em palavras.</p>
+
+    <form id="emotionForm" class="form">
+      <label for="feeling">1. Como você se sente agora?</label>
+      <input type="text" id="feeling" placeholder="Ex: Cansado, confuso, esperançoso..." required>
+
+      <label for="reason">2. O que fez você se sentir assim?</label>
+      <textarea id="reason" placeholder="Escreva o motivo, se quiser..."></textarea>
+
+      <label for="change">3. Se pudesse mudar algo agora, o que seria?</label>
+      <textarea id="change" placeholder="Escreva o que gostaria de mudar..."></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <section id="response" class="hidden">
+      <h2>Reflexão</h2>
+      <p id="message"></p>
+    </section>
+
+    <footer>
+      <p>💬 Este é um espaço simbólico — suas respostas não são salvas em lugar nenhum.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
